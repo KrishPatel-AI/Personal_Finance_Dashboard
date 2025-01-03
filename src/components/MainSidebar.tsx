@@ -1,210 +1,297 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
+
 import {
   BarChart2,
   Calendar,
-  ChartLine,
   CreditCard,
   DollarSign,
-  Globe,
   HelpCircle,
   PieChart,
   Settings,
   TrendingUp,
-  Users,
-} from "lucide-react"
+  Languages,
+  BadgeCheck,
+  Bell,
+  User,
+} from "lucide-react";
 
-import { NavMain } from "@/components/nav-main"
-import { NavProjects } from "@/components/nav-projects"
-import { SidebarUser } from "@/components/SidebarUser"
-import { TeamSwitcher } from "@/components/team-switcher"
+import { SidebarUpperContent } from "@/components/SidebarUpperContent";
+
+import { SidebarLowerContent } from "@/components/SidebarLowerContent";
+
+import { SidebarUser } from "@/components/SidebarUser";
+
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
-// Sample data structured for the expense tracker context.
-const data = {
+export const data = {
   user: {
-    name: "financeGuru",
-    email: "finance@example.com",
+    name: "Wealth Radar User",
+
+    email: "user@wealthradar.in",
+
     avatar: "/avatars/user.jpg",
   },
-  teams: [
-    {
-      name: "Personal Finance",
-      logo: DollarSign,
-      plan: "Premium",
-    },
-    {
-      name: "Family Budget",
-      logo: Users,
-      plan: "Basic",
-    },
-  ],
+
   navMain: [
     {
       title: "Dashboard",
+
       url: "/dashboard",
+
       icon: BarChart2,
+
       isActive: true,
+
       items: [
         {
           title: "Overview",
+
           url: "/dashboard/overview",
         },
-        {
-          title: "Insights",
-          url: "/dashboard/insights",
-        },
       ],
     },
+
     {
       title: "Transactions",
-      url: "/transactions",
+
+      url: "/dashboard/transactions",
+
       icon: CreditCard,
+
       items: [
         {
-          title: "Add Entry",
-          url: "/transactions/add",
+          title: "Add",
+
+          url: "/dashboard/transactions/add",
         },
+
         {
           title: "View All",
-          url: "/transactions/view",
+
+          url: "/dashboard/transactions/view_all",
         },
       ],
     },
+
     {
       title: "Analytics",
-      url: "/analytics",
+
+      url: "/dashboard/analytics",
+
       icon: PieChart,
+
       items: [
         {
           title: "Spending Trends",
-          url: "/analytics/spending",
+
+          url: "/dashboard/analytics/spending_trends",
         },
+
         {
           title: "Income Patterns",
-          url: "/analytics/income",
+
+          url: "/dashboard/analytics/income_patterns",
+        },
+
+        {
+          title: "Auto Classification",
+
+          url: "/dashboard/analytics/auto_classification",
         },
       ],
     },
+
     {
       title: "Investments",
-      url: "/investments",
+
+      url: "/dashboard/investments",
+
       icon: TrendingUp,
+
       items: [
         {
           title: "Mutual Funds",
-          url: "/investments/mutual-funds",
+
+          url: "/dashboard/investments/mutual_funds",
         },
+
         {
           title: "Stocks",
-          url: "/investments/stocks",
+
+          url: "/dashboard/investments/stocks",
         },
+
         {
-          title: "Portfolio",
-          url: "/investments/portfolio",
+          title: "IPO",
+
+          url: "/dashboard/investments/ipos",
+        },
+
+        {
+          title: "FDs",
+
+          url: "/dashboard/investments/fds",
         },
       ],
     },
+
     {
       title: "Budget",
-      url: "/budget",
+
+      url: "/dashboard/budget",
+
       icon: DollarSign,
+
       items: [
         {
           title: "Set Budget",
-          url: "/budget/set",
+
+          url: "/dashboard/budget/set_budget",
         },
+
         {
-          title: "Track Spending",
-          url: "/budget/track",
+          title: "Track Budget",
+
+          url: "/dashboard/budget/track_budget",
         },
       ],
     },
+
+    {
+      title: "Goal",
+
+      url: "/dashboard/goal",
+
+      icon: DollarSign,
+
+      items: [
+        {
+          title: "Set goal",
+
+          url: "/dashboard/goal/set_goal",
+        },
+
+        {
+          title: "View All",
+
+          url: "/dashboard/goal",
+        },
+      ],
+    },
+
     {
       title: "Trip Manager",
-      url: "/trip-manager",
+
+      url: "/dashboard/trip_manager",
+
       icon: Calendar,
+
       items: [
         {
           title: "Plan Trip",
-          url: "/trip-manager/plan",
+
+          url: "/dashboard/trip_manager/plan_trip",
         },
+
         {
-          title: "Shared Expenses",
-          url: "/trip-manager/shared",
-        },
-      ],
-    },
-    {
-      title: "Settings",
-      url: "/settings",
-      icon: Settings,
-      items: [
-        {
-          title: "Profile",
-          url: "/settings/profile",
-        },
-        {
-          title: "Notifications",
-          url: "/settings/notifications",
-        },
-        {
-          title: "Integrations",
-          url: "/settings/integrations",
+          title: "Manage",
+
+          url: "/dashboard/trip_manager/manage",
         },
       ],
     },
+
     {
-      title: "Help & Support",
-      url: "/help",
-      icon: HelpCircle,
+      title: "Accounts",
+
+      url: "/dashboard/accounts",
+
+      icon: BadgeCheck,
+
       items: [
         {
-          title: "FAQs",
-          url: "/help/faqs",
+          title: "View",
+
+          url: "/dashboard/accounts/view",
         },
+
         {
-          title: "Contact Support",
-          url: "/help/contact",
+          title: "Manage",
+
+          url: "/dashboard/accounts/manage",
         },
       ],
     },
   ],
+
   projects: [
     {
-      name: "Personal Savings Tracker",
-      url: "/projects/savings",
-      icon: ChartLine,
+      name: "Profile",
+
+      url: "/profile",
+
+      icon: User,
     },
+
     {
-      name: "Family Expense Planner",
-      url: "/projects/family",
-      icon: Globe,
+      name: "Notifications",
+      url: "/notifications",
+
+      icon: Bell,
+    },
+
+    {
+      name: "Languages",
+
+      url: "/settings/languages",
+
+      icon: Languages,
+    },
+
+    {
+      name: "Settings",
+
+      url: "/settings",
+
+      icon: Settings,
+    },
+
+    {
+      name: "Help & Support",
+
+      url: "/help_support",
+
+      icon: HelpCircle,
     },
   ],
-}
+};
 
-export function MainSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export function MainSidebar({
+  ...props
+}: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar collapsible="icon" {...props} >
-      <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
-      </SidebarHeader>
+    <Sidebar collapsible="icon" {...props}>
+      <SidebarHeader />
+
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        <SidebarUpperContent items={data.navMain} />
+
+        <SidebarLowerContent projects={data.projects} />
       </SidebarContent>
-      <SidebarFooter className="mb-16">
+
+      <SidebarFooter>
         <SidebarUser user={data.user} />
       </SidebarFooter>
+
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }
