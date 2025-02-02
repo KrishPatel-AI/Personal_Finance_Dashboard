@@ -21,17 +21,17 @@ import { TransactionsTable } from "@/components/TransactionsTable";
 import AddTransactionForm from "@/components/AddTransactionForm";
 
 interface VisibleColumns {
-  date: boolean;
-  type: boolean;
-  amount: boolean;
-  status: boolean;
-  method: boolean;
-  moneyType: boolean;
-  category: boolean;
-  to: boolean;
-  from: boolean;
-  description: boolean;
-  id: boolean;
+  Date: boolean;
+  Id: boolean;
+  Type: boolean;
+  From: boolean;
+  To: boolean;
+  Amount: boolean;
+  Status: boolean;
+  Method: boolean;
+  MoneyType: boolean;
+  Category: boolean;
+  Description: boolean;
 }
 
 export default function TransactionsPage() {
@@ -45,17 +45,17 @@ export default function TransactionsPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [visibleColumns, setVisibleColumns] = useState<VisibleColumns>({
-    date: true,
-    type: true,
-    amount: true,
-    status: true,
-    method: true,
-    moneyType: true,
-    category: true,
-    to: true,
-    from: true,
-    description: true,
-    id: true,
+    Date: true,
+    Id: true,
+    Type: true,
+    From: true,
+    To: true,
+    Amount: true,
+    Status: true,
+    Method: true,
+    MoneyType: true,
+    Category: true,
+    Description: true,
   });
 
   const pageSize = 10;
@@ -114,9 +114,10 @@ export default function TransactionsPage() {
         {/* Header */}
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-semibold">View all Transactions</h1>
-          <Button onClick={() => setIsDialogOpen(true)}>Add Transaction</Button>
         </div>
-
+        <div className="flex flex-wrap gap-4 items-center flex-end">
+          <Button onClick={() => setIsDialogOpen(true)} className="w-40">Add Transaction</Button>
+        </div>
         {/* Search and Filter */}
         <div className="flex flex-wrap gap-4 items-start">
           <Input
