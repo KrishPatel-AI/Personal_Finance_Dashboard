@@ -49,8 +49,8 @@ export function TransactionsTable({
   const shouldUseBadge = (column: string, value: string) => {
     const lowercaseValue = value?.toLowerCase();
     return (
-      (column === 'type' && ['income', 'expense'].includes(lowercaseValue)) ||
-      (column === 'status' && ['completed', 'failed', 'pending'].includes(lowercaseValue))
+      (column === 'Type' && ['income', 'expense'].includes(lowercaseValue)) ||
+      (column === 'Status' && ['completed', 'failed', 'pending'].includes(lowercaseValue))
     );
   };
 
