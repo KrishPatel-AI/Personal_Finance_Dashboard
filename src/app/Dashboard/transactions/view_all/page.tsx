@@ -19,6 +19,7 @@ import {
 import { Transaction, fetchTransactions } from "@/api/TransactionsAPI";
 import { TransactionsTable } from "@/components/TransactionsTable";
 import AddTransactionForm from "@/components/AddTransactionForm";
+import { Plus } from 'lucide-react';
 
 interface VisibleColumns {
   Date: boolean;
@@ -115,9 +116,7 @@ export default function TransactionsPage() {
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-semibold">View all Transactions</h1>
         </div>
-        <div className="flex flex-wrap gap-4 items-center flex-end">
-          <Button onClick={() => setIsDialogOpen(true)} className="w-40">Add Transaction</Button>
-        </div>
+       
         {/* Search and Filter */}
         <div className="flex flex-wrap gap-4 items-start">
           <Input
@@ -155,6 +154,9 @@ export default function TransactionsPage() {
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
+          <div className="flex flex-wrap gap-4 items-center flex-end">
+          <Button onClick={() => setIsDialogOpen(true)} ><Plus/> Transaction</Button>
+        </div>
         </div>
       </div>
 
