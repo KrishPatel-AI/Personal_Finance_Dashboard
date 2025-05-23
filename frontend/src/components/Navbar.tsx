@@ -4,6 +4,8 @@ import Link from "next/link";
 
 import { ModeToggle } from "../components/ModeToggle";
 
+import { Button } from "../components/ui/button";
+
 import Image from "next/image";
 
 import Logo from "@/assets/13.png";
@@ -60,9 +62,9 @@ export function Navbar() {
         <div className="flex items-center gap-4">
           <ModeToggle />
 
-          <button className="bg-primary text-white text-sm font-medium px-6 py-2 rounded hover:bg-primary-dark transition">
+          <Button className="">
             Get Started
-          </button>
+          </Button>
         </div>
       </div>
     </header>

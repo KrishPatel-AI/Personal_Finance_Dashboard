@@ -21,7 +21,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import Logo from "@/assets/13.png";
-
+import { BorderBeam } from "@/components/magicui/border-beam";
 export function LoginForm({
   className,
 
@@ -46,7 +46,7 @@ export function LoginForm({
           AI-Powered Financial, Expense and Investment Tracker
         </div>
       </div>
-      <Card>
+      <Card className="relative  overflow-hidden">
         <CardHeader className="text-center">
           <CardTitle className="text-xl">Welcome back</CardTitle>
 
@@ -113,6 +113,7 @@ export function LoginForm({
                 </Link>
               </div>
             </div>
+        <BorderBeam duration={8} size={100} />
           </form>
         </CardContent>
       </Card>
